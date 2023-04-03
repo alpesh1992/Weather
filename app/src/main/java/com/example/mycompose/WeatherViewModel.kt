@@ -13,10 +13,8 @@ import retrofit2.HttpException
 import java.util.*
 import kotlin.math.roundToInt
 
-class WeatherViewModel: ViewModel() {
+class WeatherViewModel(val apiService: ApiService) : ViewModel() {
     private val disposable = CompositeDisposable()
-    private val apiService: ApiService = ApiClient.getClient().create(
-        ApiService::class.java)
 
     fun getWeatherDetails(
         value: String,

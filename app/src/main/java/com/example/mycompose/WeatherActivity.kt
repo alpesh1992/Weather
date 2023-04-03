@@ -28,6 +28,8 @@ import androidx.compose.ui.unit.sp
 import androidx.core.location.LocationManagerCompat
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
+import com.example.mycompose.retrofit.ApiClient
+import com.example.mycompose.retrofit.ApiService
 import com.example.mycompose.ui.theme.MyComposeTheme
 import com.example.mycompose.util.ApplicationConstants
 import com.google.accompanist.permissions.*
@@ -53,7 +55,9 @@ class WeatherActivity : ComponentActivity() {
 @SuppressLint("MissingPermission", "PermissionLaunchedDuringComposition")
 @OptIn(ExperimentalGlideComposeApi::class, ExperimentalPermissionsApi::class)
 @Composable
-fun WeatherScreen(weatherViewModel: WeatherViewModel = WeatherViewModel()) {
+fun WeatherScreen(weatherViewModel: WeatherViewModel = WeatherViewModel(
+    ApiClient.getClient().create(
+        ApiService::class.java))) {
     val context = LocalContext.current
     val preferences = PreferenceManager.getDefaultSharedPreferences(LocalContext.current)
     val temp = remember {

@@ -44,6 +44,11 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 dependencies {
@@ -76,6 +81,5 @@ dependencies {
     implementation "com.github.bumptech.glide:compose:1.0.0-alpha.1"
 
     implementation 'com.google.accompanist:accompanist-permissions:0.24.13-rc'
-    testImplementation "io.mockk:mockk:{version}"
-    androidTestImplementation "io.mockk:mockk-android:{version}"
+    testImplementation "io.mockk:mockk:1.9.3"
 }
