@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="permission_rationale">rational</string>
+    <string name="never_ask">never ask</string>
+</resources>
